@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Title (Update)
 
-## Getting Started
+Utility to view account information for the game Star Wars: Galaxy of Heroes
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Instructions for Build and Use
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Steps to build and/or run the software:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Have node/npm installed
+2. ```npm install``` to pull all the dependencies
+3. ```npm run dev``` to start the preview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Instructions for using the software:
 
-## Learn More
+1. Log in using an ally code from the game (482841235 is mine if you dont play the game)
+2. From there you can look at all the information about your account
 
-To learn more about Next.js, take a look at the following resources:
+## Development Environment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To recreate the development environment, you need the following software and/or libraries with the specified versions:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* react/ next.js - installed via ```npm install```
 
-## Deploy on Vercel
+## Useful Websites to Learn More
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I found these websites useful in developing this software:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* [React quick start guide](https://react.dev/learn)
+* [Next.js Documentation]("https://nextjs.org/docs")
+
+## Future Work
+
+The following items I plan to fix, improve, and/or add to this project in the future:
+
+* [ ] Implement a character page, with more information about specific characters, accessed by clicking on the character
+in the roster page
+* [ ] Put in a proper database in the backend, with authentication, so users can log in properly and set account goals
+* [ ] Guild information
+First thing here
