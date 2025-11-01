@@ -1,0 +1,64 @@
+main {
+    display: flex;
+    margin-left: 6%;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    height: 100vh;
+    width: 6%;
+    .sidebarLink {
+        width: 100%;
+        aspect-ratio: 5/2;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-decoration: none;
+        p {
+            margin: auto;
+            text-decoration: none;
+            color: white;
+            margin-bottom: 5%;
+        }
+        svg {
+            margin: auto;
+            margin-top: 5%;
+            width: 60%;
+            fill: white;
+        }
+    }
+    .sidebarLink:hover {
+        background-color: var(--primary-color);
+    }
+    .sidebarLink#selected {
+        background-color: var(--primary-color);
+    }
+}
+
+.appIcon {
+    stroke-width: 50;
+    path {
+        margin: 0 auto;
+    }
+}
+
+.logout {
+    margin: 0 auto;
+    margin-top: auto;
+    padding-bottom: 10%;
+    width: 60%;
+    svg {
+        margin: auto;
+        path {
+            stroke: white;
+            stroke-width: 1.5;
+        }
+    }
+}

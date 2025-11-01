@@ -2,6 +2,7 @@
 
 import React, {useState} from "react";
 import styles from "./page.module.css";
+import "./login.css";
 
 export default function Login() {
     const [allyCode, setAllyCode] = useState<string>("");
@@ -13,10 +14,9 @@ export default function Login() {
         window.location.href = "/account";
     }
     return (
-        <form className={styles.login} onSubmit={handleSubmit}>
-            <img src={"http://localhost:7474/assets/tex.charui_greedo.png"}/>
+        <form className="login" onSubmit={handleSubmit}>
+            <img src={"/logo-placeholder-png-2.png"} alt="logo" />
             <h2>Welcome to SWGOH Utils</h2>
-            <label htmlFor={"allyCode"}>Ally Code</label>
             <input
                 name="allyCode"
                 id={"allyCode"}
@@ -27,6 +27,7 @@ export default function Login() {
                 required={true}
                 maxLength={9}
                 minLength={9}
+                placeholder="Enter Ally Code"
             />
             <button type="submit" id={"login"}>Log In</button>
         </form>

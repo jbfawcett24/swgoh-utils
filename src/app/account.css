@@ -1,0 +1,147 @@
+body {
+    overflow-x: hidden;
+}
+.accountInfo {
+    width: 100%;
+    header {
+        background-color:  #375a7f;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h1 {
+            padding-left: 1%;
+            width: 100%;
+            font-size: 3rem;
+            color: white;
+        }
+        select {
+            height: 100%;
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+            margin: auto 5% auto auto;
+        }
+    }
+}
+
+.units {
+    min-height: 100vh;
+    background-color:  var(--primary-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 1%;
+    a {
+        margin-top: 1%;
+        display: flex;
+        overflow: hidden;
+        border-radius: 10px;
+        width: 20%;
+        min-width: 470px;
+        background-color:  var(--secondary-color);
+        img {
+            width: 100px;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            margin-left: 2%;
+            h4 {
+                font-size: 1.2rem;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+        }
+    }
+    .alignment_light {
+        border: 3px solid var(--light-color);
+    }
+    .alignment_dark {
+        border: 3px solid var(--accent-color);
+    }
+    .alignment_neutral {
+        border: 3px solid #808080
+    }
+    .stars {
+        font-size: 2em;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+        height: 1em;
+    }
+    .filledStar {
+        color: #e3ab59;
+    }
+}
+
+.units a {
+    position: relative;
+    margin-top: 1%;
+    display: flex;
+    /*overflow: hidden;*/
+    border-radius: 10px;
+    width: 20%;
+    background-color: var(--secondary-color);
+    transition: background 0.5s ease;
+    text-decoration: none;
+    img {
+        width: 100px;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        margin-left: 2%;
+        h4 {
+            margin-top: 5%;
+            font-size: 1.2rem;
+        }
+        p {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+/* Hover animation — background “fades in” from edges toward center */
+.units a::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: radial-gradient(ellipse at center, var(--secondary-color) 50%, var(--primary-color) 100%);
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: scale(1.2);
+    z-index: 0;
+}
+
+.units a.alignment_light::before {
+    background: radial-gradient(circle at center, var(--secondary-color) 20%, var(--light-color) 100%);
+}
+
+.units a.alignment_dark::before {
+    background: radial-gradient(circle at center, var(--secondary-color) 20%, var(--accent-color) 100%);
+}
+
+.units a.alignment_neutral::before {
+    background: radial-gradient(circle at center, var(--secondary-color) 20%, #808080 100%);
+}
+
+.units a:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Keep text and image above the overlay */
+.units a * {
+    position: relative;
+    z-index: 1;
+}
+

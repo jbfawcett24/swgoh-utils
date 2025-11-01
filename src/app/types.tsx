@@ -71,3 +71,35 @@ export interface Tier {
 export interface Crew {
     unitId: string;
 }
+
+export interface FullData {
+    name: string;
+    level: number;
+    allyCode: string;
+    playerId: string;
+    guildId?: string | null;
+    guildName?: string | null;
+    guildLogoBackground?: string | null;
+    guildBannerColor?: string | null;
+    guildBannerLogo?: string | null;
+    selectedPlayerTitle?: string | null;
+    selectedPlayerPortrait?: string | null;
+    playerRating?: PlayerRating | null;
+    units: DisplayUnit[]
+}
+
+export interface DisplayUnit {
+    baseId: string;
+    categoryId: string[];
+    relicDefinition?: RelicDefinition;
+    skillReference: Skill[];
+    thumbnailName: string;
+    unitTier: Tier[];
+    crew: Crew[];
+    iconPath?: string;
+    currentRarity: number;
+    currentLevel: number;
+    currentTier: number;
+    relic: number | null;
+    name: string;
+}

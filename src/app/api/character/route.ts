@@ -7,8 +7,9 @@ export async function GET(request:Request) {
     if (!charId) {
         charId = "";
     }
+    console.log(charId);
 
-    const response = await fetch(`http://localhost:7474/characters`, {
+    const response = await fetch(`http://162.255.77.151:7474/characters`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
