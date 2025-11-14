@@ -12,6 +12,7 @@ export interface Player {
     selectedPlayerTitle: SelectedPlayerThing;
     selectedPlayerPortrait: SelectedPlayerThing;
     playerRating: PlayerRating;
+    last_updated: string;
 }
 
 export interface SelectedPlayerThing {
@@ -85,6 +86,7 @@ export interface FullData {
     selectedPlayerTitle?: string | null;
     selectedPlayerPortrait?: string | null;
     playerRating?: PlayerRating | null;
+    last_updated: string | null;
     units: DisplayUnit[]
 }
 

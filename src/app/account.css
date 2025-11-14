@@ -5,26 +5,46 @@ body {
     width: 100%;
     header {
         background-color:  #375a7f;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        h1 {
-            padding-left: 1%;
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             width: 100%;
-            font-size: 3rem;
-            color: white;
+            h1 {
+                padding-left: 1%;
+                width: 100%;
+                font-size: 3rem;
+                color: white;
+            }
+            select {
+                height: 100%;
+                width: 200px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+                font-size: 16px;
+                color: #333;
+                cursor: pointer;
+                margin: auto 5% auto auto;
+            }
         }
-        select {
-            height: 100%;
-            width: 200px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            font-size: 16px;
-            color: #333;
-            cursor: pointer;
-            margin: auto 5% auto auto;
+        .tabs {
+            justify-content: left;
+            padding-left: 1%;
+            #selected {
+                background-color:  var(--primary-color);
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+                color:  var(--tertiary-color);
+            }
+            h2 {
+                padding: 0.2%;
+                cursor: pointer;
+                margin-left: 0.2%;
+                color: white;
+                width: fit-content;
+            }
         }
     }
 }
@@ -145,3 +165,42 @@ body {
     z-index: 1;
 }
 
+.deleteAccount {
+    width: 100%;
+    height: 100vh;
+    background-color:  var(--accent-color);
+    cursor: pointer;
+    font-size: 5rem;
+}
+.deleteAccount:hover {
+    background-color:  #FF0000;
+}
+
+.settings {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1%;
+    h3 {
+        color: white;
+        font-size: 1.7rem;
+    }
+    button {
+        margin-top: 0.5%;
+        min-width: 150px;
+        border: none;
+        height: 40px;
+        border-radius: 10px;
+        background-color:  var(--tertiary-color);
+        color: var(--primary-color);
+        padding: 1%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease;
+    }
+    .loading {
+        background-color: var(--secondary-color);
+    }
+}

@@ -8,7 +8,7 @@ export async function GET(request: Request) {
         return NextResponse.json({ error: "Missing ally code" }, { status: 400 });
     }
 
-    const response = await fetch(`http://162.255.77.151:7474/account`, {
+    const response = await fetch(`http://localhost:7474/account`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

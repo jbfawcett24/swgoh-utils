@@ -28,6 +28,9 @@ body {
         border-radius: 10px;
     }
     button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-radius: 10px;
         border: none;
         outline: none;
@@ -56,4 +59,28 @@ body {
     background: linear-gradient(135deg, var(--accent-color), var(--light-color));
     filter: blur(20px);
     z-index: -1;
+}
+
+#newHere {
+    padding-top: 5%;
+}
+
+#createAccountLink {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.signUp {
+    label {
+        margin-top: 2%;
+        margin-left: 5%;
+        align-self: flex-start;
+        color: white;
+    }
+    input {
+        margin-top: 0;
+    }
+}
+.error {
+    color: red;
 }
