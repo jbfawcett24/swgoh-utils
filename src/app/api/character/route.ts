@@ -9,7 +9,7 @@ export async function GET(request:Request) {
     }
     console.log(charId);
 
-    const response = await fetch(`http://162.255.77.151:7474/characters`, {
+    const response = await fetch(`http://localhost:7474/characters`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -21,9 +21,8 @@ export async function GET(request:Request) {
 
     let data = await response.json();
 
-    console.log(data);
+    //console.log(data);
     if(charId === "") {
-        data = data.units;
         return NextResponse.json({data});
     }
     return NextResponse.json({data});

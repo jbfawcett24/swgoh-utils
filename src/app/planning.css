@@ -1,0 +1,257 @@
+.planning {
+    h1 {
+        padding-left: 1%;
+        width: 100%;
+        font-size: 3rem;
+        color: white;
+    }
+}
+
+.planningMain {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+}
+
+.planCard{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    --p: 50;
+    margin: 5% 5% 0;
+    z-index: 1;
+    div {
+        width: 100%;
+        background-color: var(--secondary-color);
+        border-radius: 12px;
+    }
+    .closed {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        h2 {
+            color: white;
+            font-size: 4rem;
+            margin-left: 2%;
+        }
+    }
+    .open {
+        padding: 2%;
+        h2 {
+            color: white;
+            font-size: 4rem;
+        }
+        .character {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            margin-top: 2%;
+            img {
+                max-height: 120px;
+                border-radius: 50%;
+            }
+            div {
+                margin-left: 2%;
+                .progressBar {
+                    margin: 0;
+                    margin-top: 1%;
+                    height: 20px;
+                    --p: 50;
+                    background-color: var(--primary-color);
+                    background-image: linear-gradient(
+                            135deg,
+                            green calc(var(--p) * 1%),
+                            transparent calc(var(--p) * 1%)
+                    );
+                }
+            }
+        }
+    }
+}
+
+.planCard::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    background-image: conic-gradient(
+        from -90deg,
+            green 0deg calc((var(--p) * 3.6deg)),
+            transparent calc((var(--p) * 3.6deg))
+    );
+    border-radius: inherit;
+    z-index: -1; /* now properly behind */
+}
+
+.filledStar {
+    color: #e3ab59;
+    font-size: 2rem;
+    height: 2rem;
+}
+
+.stars {
+    margin-bottom: 0.7%;
+    padding-left: 1%;
+    font-size: 2rem;
+}
+
+.unitInfo {
+    display: flex;
+    align-items: center;
+}
+
+.addNew {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    margin: 5% 5% 0;
+    z-index: 1;
+    min-height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1%;
+    .basic-single {
+        display: flex;
+        flex-direction: column !important;
+        width: 100%;
+    }
+    .createPlan {
+        margin: auto;
+        font-size: 2.5rem;
+    }
+}
+
+.addNew .select__control,
+.addNew .select__value-container,
+.addNew .select__input-container,
+.addNew .select__single-value {
+    background-color: white !important;
+}
+
+.select__control {
+    display: inline;
+}
+
+.addNew .select__control,
+.addNew .select__value-container,
+.addNew .select__indicators-container {
+    width: auto !important;
+    display: flex !important;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    padding: 1%;
+    img {
+        margin-bottom: 5%;
+    }
+}
+
+.newPlanHeader{
+    display: flex;
+    margin: 1%;
+    border-bottom: 1px solid var(--tertiary-color);
+}
+
+.newPlanTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1%;
+    border-left: 1px solid var(--tertiary-color);
+    padding-left: 1%;
+    label {
+        font-size: 3rem;
+    }
+    #name {
+        font-size: 2rem;
+    }
+}
+
+.newPlanForm {
+    position: relative;
+    cursor: default;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    button {
+        margin: auto;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        width: 60%;
+        min-height: 50px;
+        font-size: 2rem;
+        border: none;
+        background-color: var(--tertiary-color);
+        color: var(--primary-color);
+        border-radius: 10px;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+    button:hover {
+        background-color: var(--primary-color);
+        color: var(--tertiary-color);
+    }
+}
+
+.close {
+    position: absolute;
+    top: 5%;
+    left:98%;
+    cursor: pointer;
+}
+
+.createChar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .basic-single {
+        padding-left: 2%;
+        padding-right: 2%;
+        width: 30%;
+    }
+    .goalInput {
+        display: flex;
+        text-wrap: nowrap;
+        width: 15%;
+        input {
+            width: 20%;
+            margin-left: 2%;
+        }
+        label {
+            margin: auto;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
+
+.delete {
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 2%;
+    transition: color 0.2s ease-in-out;
+    font-size: 1.5rem;
+}
+.delete:hover {
+    color: red;
+}
+
+.error {
+    color: red;
+    margin: auto;
+    margin-bottom: 1%;
+}
+
+.createNew {
+    cursor: pointer;
+    font-size: 1.7rem;
+    padding-left: 2%;
+    margin-top: 1%;
+}
+

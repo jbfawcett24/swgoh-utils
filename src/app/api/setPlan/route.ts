@@ -1,6 +1,8 @@
 import {NextRequest, NextResponse} from "next/server";
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
+
+    const requestData = await request.json();
 
     const authHeader = request.headers.get("authorization");
 
@@ -14,14 +16,17 @@ export async function GET(request: Request) {
     // If it’s like "Bearer <token>" extract the token
     const token = authHeader.replace("Bearer ", "");
 
-    const response = await fetch(`http://localhost:7474/account`, {
-        method: "GET",
+    const response = await fetch(`http://localhost:7474/set_plan`, {
+        method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
-        }
+        },
+        body: JSON.stringify(requestData)
     });
-    const data = await response.json();
 
-    return NextResponse.json({data});
+    return NextResponse.json(
+        { success: response.ok },
+        { status: response.status }
+    );
 }

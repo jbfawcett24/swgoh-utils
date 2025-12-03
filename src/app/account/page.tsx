@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import Sidebar from "@/app/sidebar";
 import {MoonLoader} from "react-spinners";
 
-const apiurl = "http://162.255.77.151:7474";
+const apiurl = "http://localhost:7474";
 
 export default function Account() {
     const [accountData, setAccountData] = useState<Player | null>(null);
@@ -27,7 +27,7 @@ export default function Account() {
 
         Promise.all([
             //fetch(`/api/account?allyCode=${allyCode}`).then(res => res.json()),
-            fetch("http://localhost:7474/account", {
+            fetch("/api/account", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -38,10 +38,11 @@ export default function Account() {
             fetch("/charLookup.json").then(res => res.json())
         ])
             .then(([accountRes, charRes, lookup]) => {
-                const account = accountRes;
+                console.log(charRes);
+                const account = accountRes.data;
                 const chars = charRes.data;
 
-                console.log(accountRes);
+                console.log(chars);
                 console.log(account);
 
                 setAccountData(account);
@@ -57,6 +58,7 @@ export default function Account() {
     function changeTab(e:React.MouseEvent) {
         const target = e.target as HTMLElement;
         setTab(target.classList[0]);
+
     }
 
     function sortData(e: React.ChangeEvent<HTMLSelectElement>) {
@@ -148,8 +150,9 @@ export default function Account() {
             const data = await fetch("api/syncAccount", options);
 
             const json = await data.json();
-            makeFullData(charData, json.data, charLookup);
+            setFullData(makeFullData(charData, json.data, charLookup));
             console.log(json);
+            lastUpdate = json.data.lastUpdate;
             setLoading(false);
         }
 
@@ -179,6 +182,38 @@ export default function Account() {
         });
     }
 
+    type mainDisplayProps = {
+        fullData: FullData | null;
+        tab: string;
+    }
+
+    function MainDisplay({fullData, tab}: mainDisplayProps) {
+        if(!fullData) {
+            return (
+                <p>Loading...</p>
+            );
+        }
+
+        switch(tab) {
+            case "characters":
+                return (
+                    <section className={"units"}> {fullData.units.map((unit: DisplayUnit) => (
+                        <CharTemplate key={unit.baseId} character={unit} type={"characters"} />
+                    ))}</section>
+                )
+            case "ships":
+                return (
+                    <section className={"units"}> {fullData.units.map((unit: DisplayUnit) => (
+                        <CharTemplate key={unit.baseId} character={unit} type={"ships"}/>
+                    ))}</section>
+                )
+            case "settings":
+                return (
+                    <Settings lastUpdate={fullData.last_updated}/>
+                )
+        }
+    }
+
     return (
         <main>
             <Sidebar />
@@ -199,22 +234,19 @@ export default function Account() {
                     </section>
                     <section className="tabs">
                         <h2 className="characters" id={tab === "characters" ? "selected" : ""} onClick={changeTab}>Characters</h2>
+                        <h2 className={"ships"} id={tab === "ships" ? "selected" : ""} onClick={changeTab}>Ships</h2>
                         <h2 className={"settings"} id={tab === "settings" ? "selected": ""} onClick={changeTab}>Settings</h2>
                     </section>
                 </header>
-                <section className="units">
-                    {fullData && tab === "characters"
-                        ? fullData.units.map((unit: DisplayUnit) => (
-                            <CharTemplate key={unit.baseId} character={unit} />
-                        ))
-                        : fullData && tab === "settings" ? <Settings lastUpdate={fullData.last_updated}/> :"Loading..."}
+                <section className="main">
+                    <MainDisplay fullData={fullData} tab={tab}/>
                 </section>
             </div>
         </main>
     );
 }
 
-function makeFullData(
+export function makeFullData(
     charData: Unit[],
     playerData: Player,
     lookup: Record<string, string>
@@ -266,35 +298,58 @@ function makeFullData(
 
 type CharTemplateProps = {
     character: DisplayUnit & { name: string };
+    type: string;
 };
 
-function CharTemplate({ character }: CharTemplateProps) {
-    return (
-        <a
-            className={character.categoryId.find(tag => tag.startsWith("alignment"))}
-            href={`/character/${character.baseId}`}
-        >
-            <img src={`${apiurl}/${character.iconPath}`} alt={character.baseId} />
-            <div>
-                <h4>{character.name}</h4>
-                <UnitStars stars={character.currentRarity} />
-                <p>
-                    {character.relic !== null
-                        ? character.relic > 2
-                            ? `Relic: ${character.relic - 2} | Gear: ${character.currentTier}`
-                            : `Gear: ${character.currentTier}`
-                        : ""}
-                </p>
-            </div>
-        </a>
-    );
+function CharTemplate({ character, type }: CharTemplateProps) {
+    const crewless = ["VULTUREDROID", "YWINGREBEL", "TIEBOMBERIMPERIAL", "HYENABOMBER", "YWINGCLONEWARS"]
+    if ((character.crew.length === 0 && !crewless.some(id => id === character.baseId)) && type === "characters") {
+        return (
+            <a
+                className={character.categoryId.find(tag => tag.startsWith("alignment"))}
+                href={`/character/${character.baseId}`}
+            >
+                <img src={`${apiurl}/${character.iconPath}`} alt={character.baseId} />
+                <div>
+                    <h4>{character.name}</h4>
+                    <UnitStars stars={character.currentRarity} total={7} />
+                    <p>
+                        {character.relic !== null
+                            ? character.relic > 2
+                                ? `Relic: ${character.relic - 2} | Gear: ${character.currentTier}`
+                                : `Gear: ${character.currentTier}`
+                            : ""}
+                    </p>
+                </div>
+            </a>
+        );
+    } else if((character.crew.length > 0 || crewless.some(id => id === character.baseId)) && type === "ships") {
+        return (
+            <a
+                className={character.categoryId.find(tag => tag.startsWith("alignment"))}
+                href={`/character/${character.baseId}`}
+            >
+                <img src={`${apiurl}/${character.iconPath}`} alt={character.baseId} />
+                <div>
+                    <h4>{character.name}</h4>
+                    <UnitStars stars={character.currentRarity} total={7}/>
+                    <p>
+                        {character.relic !== null
+                            ? character.relic > 2
+                                ? `Relic: ${character.relic - 2} | Gear: ${character.currentTier}`
+                                : `Gear: ${character.currentTier}`
+                            : ""}
+                    </p>
+                </div>
+            </a>
+        );
+    }
 }
 
-function UnitStars({ stars }: { stars: number }) {
-    const totalStars = 7;
+export function UnitStars({ stars, total = 7}: { stars: number , total:number}) {
     return (
         <p className="stars">
-            {Array.from({ length: totalStars }, (_, i) => (
+            {Array.from({ length: total }, (_, i) => (
                 <span key={i} className={i + 1 <= stars ? "filledStar" : "emptyStar"}>
                     ★
                 </span>

@@ -34,6 +34,13 @@ main {
             fill: white;
         }
     }
+    .Planning {
+        svg {
+            width: 60%;
+            margin-bottom: 10%;
+            fill: white;
+        }
+    }
     .sidebarLink:hover {
         background-color: var(--primary-color);
     }

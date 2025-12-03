@@ -1,7 +1,7 @@
 body {
     overflow-x: hidden;
 }
-.accountInfo {
+.accountInfo, .planning{
     width: 100%;
     header {
         background-color:  #375a7f;
@@ -47,6 +47,9 @@ body {
             }
         }
     }
+}
+.main {
+    min-height: 100vh;
 }
 
 .units {
@@ -199,6 +202,7 @@ body {
         align-items: center;
         justify-content: center;
         transition: background 0.2s ease;
+        cursor: pointer;
     }
     .loading {
         background-color: var(--secondary-color);
