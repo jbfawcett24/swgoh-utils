@@ -13,8 +13,9 @@ Steps to build and/or run the software:
 
 Instructions for using the software:
 
-1. Log in using an ally code from the game (482841235 is mine if you dont play the game)
-2. From there you can look at all the information about your account
+1. Create an account/log in to view account information
+2. On the planning page you can view plans or create new plans
+3. in settings you can sync your account to the game
 
 ## Development Environment
 
@@ -37,4 +38,5 @@ The following items I plan to fix, improve, and/or add to this project in the fu
 in the roster page
 * [ ] Put in a proper database in the backend, with authentication, so users can log in properly and set account goals
 * [ ] Guild information
+* [ ] Delete Plans
 First thing here

@@ -24,20 +24,22 @@ The expected minimum amount of time each Sprint for each category is as follows:
 
 ## Time Log
 
-| Date       | Start Time | Category | Description                            | Total Minutes |
-|------------|------------|:--------:|----------------------------------------|:-------------:|
-| 10/20/2025 | 2:00       |   MTG    | Planning Meeting                       |      60       |
-| 10/21/2025 | 5:00       |    IM    | Initial Setup                          |      120      |
-| 10/22/2025 | 2:00       |    TP    | Team Project Work Day                  |      60       |
-| 10/23/2025 | 5:00       |    IM    | API Integration                        |      120      |
-| 10/24/2025 | 2:00       |   MTG    | Standup Meeting                        |      60       |
-| 10/25/2025 | 12:00      |    TP    | Team project redesign                  |      120      |
-| 10/26/2025 | 12:00      |    IM    | Login Page/basic account functionality |      120      |
-| 10/27/2025 | 2:00       |    TP    | Team Project Work Day                  |      60       |
-| 10/28/2025 | 5:00       |    IM    | lots of styling                        |      120      |
-| 10/29/2025 | 2:00       |   MTG    | Team Review Meeting                    |      60       |
-| 10/30/2025 | 5:00       |    IM    | finishing touches                      |      120      |
-| 10/31/2025 | 2:00       |   MTG    | Individual Review Meeting              |      60       |
+| Date       | Start Time | Category | Description                              | Total Minutes |
+|------------|------------|:--------:|------------------------------------------|:-------------:|
+| 11/17/2025 | 2:00       |   MTG    | Planning Meeting                         |      60       |
+| 11/17/2025 | 4:00       |    IM    | Database Setup                           |      300      |
+| 11/18/2025 | 5:00       |    IM    | Finishing Database                       |      120      |
+| 11/19/2025 | 2:00       |    TP    | Sprint Planning                          |      60       |
+| 11/21/2025 | 2:00       |   MTG    | Standup Meeting                          |      60       |
+| 11/22/2025 | 12:00      |    IM    | Endpoint Work                            |      120      |
+| 11/24/2025 | 2:00       |    TP    | More planning, QOL adjustments           |      60       |
+| 11/25/2025 | 5:00       |    TP    | Figuring out backend connection          |      60       |
+| 11/26/2025 | 3:00       |    TP    | Graph display work                       |      60       |
+| 11/28/2025 | 11:00      |    IM    | Beginning frontend work                  |      60       |
+| 12/1/2025  | 2:00       |   MTG    | Team Review Meeting                      |      60       |
+| 12/1/2025  | 4:00       |    IM    | Display Plans & beginning of creat plans |      60       |
+| 12/3/2025  | 12:00      |    IM    | Create plans finished                    |      60       |
+| 12/3/2025  | 2:00       |   MTG    | Individual Review Meeting                |      60       |
 
 _Note: Add more rows as needed._
 
@@ -45,7 +47,7 @@ _Note: Add more rows as needed._
 
 | Category               | Total Time (Hours:Minutes) |
 |------------------------|:--------------------------:|
-| IM - Individual Module |           10:00            |
+| IM - Individual Module |           12:00            |
 | TP - Team Project      |            4:00            |
 | MTG - Class Meetings   |            4:00            |
-| **TOTAL**              |           18:00            |
+| **TOTAL**              |           20:00            |
