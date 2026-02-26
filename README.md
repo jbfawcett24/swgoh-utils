@@ -1,4 +1,4 @@
-# Project Title (Update)
+# SWGOH Utils
 
 Utility to view account information for the game Star Wars: Galaxy of Heroes
 
